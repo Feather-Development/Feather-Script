@@ -1,2 +1,2 @@
-# Feather-Script
+# Feather
 A Roblox Utility Modification.
