@@ -1,2 +1,2 @@
-# Feather-Script
-Feather Roblox script made to make you a pro.
+# Feather
+A Roblox Utility Modification.
