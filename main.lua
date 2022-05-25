@@ -99,10 +99,10 @@ end--]]
 if not isfolder(Directory.."Scripts/") then
     makefolder(Directory.."Scripts/")
     writefile(Directory.."Scripts/anygame", loadstring(game:HttpGet("https://raw.githubusercontent.com/Feather-Development/Feather-Script/main/Scripts/anygame"))())
-else
-    if not betterisfile(Directory.."Scripts/anygame") then
-        writefile(Directory.."Scripts/anygame", loadstring(game:HttpGet("https://raw.githubusercontent.com/Feather-Development/Feather-Script/main/Scripts/anygame"))())
-    end
+end
+
+if not betterisfile(Directory.."Scripts/anygame") then
+    writefile(Directory.."Scripts/anygame", loadstring(game:HttpGet("https://raw.githubusercontent.com/Feather-Development/Feather-Script/main/Scripts/anygame"))())
 end
 
 if not isfolder(Directory.."Addons/") then
