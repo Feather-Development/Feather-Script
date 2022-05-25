@@ -1,6 +1,6 @@
 wait(game:IsLoaded())
 
---[[ Preload --]]
+--[[ Preload ]]--
 
 local betterisfile = function(file)
 	local suc, res = pcall(function() return readfile(file) end)
@@ -24,14 +24,14 @@ local requestfunc = syn and syn.request or http and http.request or http_request
 	end
 end
 
---[[ Preload Checks --]]
+--[[ Preload Checks ]]--
 
 if not (getasset and requestfunc and queueteleport) then
 	print("[Feather] Missing dependency(s).")
 	return
 end
 
---[[ Rejoin Checks --]]
+--[[ Rejoin Checks ]]--
 
 queueteleport [[
     repeat wait() until game:IsLoaded() wait(5)
@@ -39,7 +39,7 @@ queueteleport [[
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Feather-Development/Feather-Script/main/main.lua"))()
 ]]
 
---[[ Variables --]]
+--[[ Variables ]]--
 
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
@@ -49,9 +49,9 @@ local Character = Player.Character
 local Entity = loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/Libraries/entityHandler.lua"))() -- Mabye download the file and put it in the /Feather/ folder.
 local espLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Sirius/request/library/esp/esp.lua'),true))()
 local TPService = game:GetService("TeleportService")
-local Directory = "Feather/"
+local Directory = "Feather"
 
---[[ Setup --]]
+--[[ Setup ]]--
 
 wait()
 
@@ -65,7 +65,7 @@ local Window = Feather:MakeWindow({
 })
 
 
---[[ Private Access --]]
+--[[ Private Access ]]--
 
 local hasPrivate_IDs = {
     3555144226,
@@ -75,9 +75,9 @@ local hasPrivate_Names = {
     "comet2_exe",
 }
 
---[[ Modules --]]
+--[[ Modules ]]--
 
---[[ Private ≈ Beta --]]
+--[[ Private ≈ Beta ]]--
 
 --[[if hasValue(hasPrivate_IDs, LocalPlayer.UserId) and hasValue(hasPrivate_Names, LocalPlayer.Name) then
 
@@ -94,21 +94,34 @@ local hasPrivate_Names = {
         end
     })
 
-end--]]
+end]]--
 
 if not isfolder(Directory.."Scripts/") then
     makefolder(Directory.."Scripts/")
-    writefile(Directory.."Scripts/anygame", loadstring(game:HttpGet("https://raw.githubusercontent.com/Feather-Development/Feather-Script/main/Scripts/anygame.lua"))())
 end
 
-if not betterisfile(Directory.."Scripts/anygame") then
-    writefile(Directory.."Scripts/anygame", loadstring(game:HttpGet("https://raw.githubusercontent.com/Feather-Development/Feather-Script/main/Scripts/anygame.lua"))())
+if not betterisfile(Directory.."Scripts/anygame.lua") then
+    local req = requestfunc({
+        Url = "https://raw.githubusercontent.com/Feather-Development/Feather-Script/main/Scripts/anygame.lua",
+        Method = "GET"
+    })
+    writefile(Directory.."Scripts/anygame.lua", req.Body)
 end
 
-if not isfolder(Directory.."Addons/") then
-    makefolder(Directory.."Addons/")
+if not isfolder(Directory.."/Addons/") then
+    makefolder(Directory.."/Addons/")
 end
 
+for i,v in pairs(listfiles(Directory.."/Scripts")) do
+    print(v)
+    if v == Directory.."/Scripts\\"..game.PlaceId..".lua" then
+        --loadstring(readfile(Directory.."Scripts/"..v))()
+    elseif v == Directory.."/Scripts\\anygame.lua" then
+        --loadstring(readfile(Directory.."Scripts/"..v))()
+        
+    end
+end
+print("[Feather] Loaded script for game: "..v)
 
 Feather:MakeNotification({
     Name = "Feather",
@@ -117,6 +130,6 @@ Feather:MakeNotification({
     Time = 5
 })
 
---[[ Init --]]
+--[[ Init ]]--
 
 Feather:Init()
