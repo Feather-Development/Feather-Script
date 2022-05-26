@@ -1,11 +1,11 @@
 local Script = {
     Feather = nil,
     Categories = {
-        Combat,
-        Blatant,
-        Render,
-        World,
-        Utility
+        Combat = nil,
+        Blatant = nil,
+        Render = nil,
+        World = nil,
+        Utility = nil
     }
 }
 
