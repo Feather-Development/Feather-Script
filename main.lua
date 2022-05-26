@@ -108,13 +108,13 @@ if not isfolder(Directory.."/Scripts/") then
     makefolder(Directory.."/Scripts/")
 end
 
-if not betterisfile(Directory.."Scripts/anygame.lua") then
-    local req = requestfunc({
-        Url = "https://raw.githubusercontent.com/Feather-Development/Feather-Script/main/Scripts/anygame.lua",
-        Method = "GET"
-    })
-    writefile(Directory.."/Scripts/anygame.lua", req.Body)
-end
+--if not betterisfile(Directory.."Scripts/anygame.lua") then
+--    local req = requestfunc({
+--        Url = "https://raw.githubusercontent.com/Feather-Development/Feather-Script/main/Scripts/anygame.lua",
+--        Method = "GET"
+--    })
+--    writefile(Directory.."/Scripts/anygame.lua", req.Body)
+--end
 
 if not isfolder(Directory.."/Addons/") then
     makefolder(Directory.."/Addons/")
@@ -130,12 +130,7 @@ for i,v in pairs(listfiles(Directory.."/Scripts")) do
         }
         anygame()
     elseif v == Directory.."/Scripts".."\\".."anygame.lua" then
-        local anygame = loadstring(readfile(v))()
-        --anygame.Script = {
-        --    Feather,
-        --    {Blatant, Combat, Render, World, Utility}
-        --}
-        --anygame()
+        loadstring(readfile(v))()
     end
 end
 print("[Feather] Loaded script")

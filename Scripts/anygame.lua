@@ -1,15 +1,4 @@
-local Script = {
-    Feather = nil,
-    Categories = {
-        Combat = nil,
-        Blatant = nil,
-        Render = nil,
-        World = nil,
-        Utility = nil
-    }
-}
-
-(Feather, {Combat, Blatant, Render, World, Utility}) do
+local function Script(Feather, {Combat, Blatant, Render, World, Utility})
     --[[ Variables --]]
 
     local Entity = loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/Libraries/entityHandler.lua"))() -- Mabye download the file and put it in the /Feather/ folder.
@@ -211,4 +200,8 @@ local Script = {
         end
     })
 
+end
+
+(Feather, {Combat, Blatant, Render, World, Utility}) do 
+    Script(Feather, {Combat, Blatant, Render, World, Utility})
 end
