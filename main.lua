@@ -75,26 +75,35 @@ local hasPrivate_Names = {
     "comet2_exe",
 }
 
---[[ Modules ]]--
+local Blatant = Window:MakeTab({
+    Name = "Blatant",
+    Icon = "rbxassetid://9678803574",
+    PremiumOnly = false
+})
 
---[[ Private ≈ Beta ]]--
+local Combat = Window:MakeTab({
+    Name = "Combat",
+    Icon = "rbxassetid://9677479694",
+    PremiumOnly = false
+})
 
---[[if hasValue(hasPrivate_IDs, LocalPlayer.UserId) and hasValue(hasPrivate_Names, LocalPlayer.Name) then
+local Render = Window:MakeTab({
+    Name = "Render",
+    Icon = "rbxassetid://9678804255",
+    PremiumOnly = false
+})
 
-    local Private = Window:MakeTab({
-        Name = "Private",
-        Icon = "rbxassetid://9677399831",
-        PremiumOnly = false
-    })
+local World = Window:MakeTab({
+    Name = "World",
+    Icon = "rbxassetid://9678804923",
+    PremiumOnly = false
+})
 
-    Private:AddButton({
-        Name = "Dex Explorer",
-        Callback = function()
-            loadstring(game:GetObjects('rbxassetid://2180084478')[1].Source)()
-        end
-    })
-
-end]]--
+local Utility = Window:MakeTab({
+    Name = "Utility",
+    Icon = "rbxassetid://9677477773",
+    PremiumOnly = false
+})
 
 if not isfolder(Directory.."Scripts/") then
     makefolder(Directory.."Scripts/")
@@ -115,7 +124,11 @@ end
 for i,v in pairs(listfiles(Directory.."/Scripts")) do
     print(v)
     if v == Directory.."/Scripts\\"..game.PlaceId..".lua" then
-        --loadstring(readfile(Directory.."Scripts/"..v))()
+        --local anygame = loadstring((readfile(Directory.."Scripts/"..v)), true)()
+        --anygame.Script = {
+        --    Feather,
+        --    {Blatant, }
+        --}
     elseif v == Directory.."/Scripts\\anygame.lua" then
         --loadstring(readfile(Directory.."Scripts/"..v))()
         

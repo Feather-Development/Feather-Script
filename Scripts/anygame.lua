@@ -1,4 +1,17 @@
-local function(Feather, {Combat, Blatant, Render, World, Utility})
+local Script = {
+    Feather = nil,
+    Categories = {
+        Combat,
+        Blatant,
+        Render,
+        World,
+        Utility
+    }
+}
+
+local Category = Script.Categories
+
+do
 
     --[[ Variables --]]
 
@@ -51,7 +64,7 @@ local function(Feather, {Combat, Blatant, Render, World, Utility})
     
     
     local function Notify(Contents)
-        Feather:MakeNotification({
+        Script.Feather:MakeNotification({
             Name = "Feather",
             Content = Contents,
             Image = "rbxassetid://9677399831",
@@ -65,7 +78,7 @@ local function(Feather, {Combat, Blatant, Render, World, Utility})
 
     --[[ Blatant --]]
 
-    Blatant:AddSlider({
+    Category.Blatant:AddSlider({
         Name = "Speed",
         Min = 16,
         Max = 256,
@@ -80,7 +93,7 @@ local function(Feather, {Combat, Blatant, Render, World, Utility})
         end
     })
 
-    Blatant:AddSlider({
+    Category.Blatant:AddSlider({
         Name = "Jump",
         Min = 50,
         Max = 500,
@@ -95,7 +108,7 @@ local function(Feather, {Combat, Blatant, Render, World, Utility})
         end
     }) 
 
-    Blatant:AddSlider({
+    Category.Blatant:AddSlider({
         Name = "Flight",
         Min = 0,
         Max = 6,
@@ -110,7 +123,7 @@ local function(Feather, {Combat, Blatant, Render, World, Utility})
         end
     })
 
-    Blatant:AddTextbox({
+    Category.Blatant:AddTextbox({
         Name = "Teleport to Player",
         Callback = function(Value)
         Value = Value:lower()
@@ -128,8 +141,8 @@ local function(Feather, {Combat, Blatant, Render, World, Utility})
 
     --[[ Render --]]
 
-    Render:AddLabel("ESP")
-    Render:AddToggle({
+    Category.Render:AddLabel("ESP")
+    Category.Render:AddToggle({
         Name = "ESP",
         Default = false,
         Flag = "ESPToggle",
@@ -145,15 +158,15 @@ local function(Feather, {Combat, Blatant, Render, World, Utility})
 
     --[[ World --]]
 
-    World:AddLabel("FPS Booster")
-    local FPSLevel = World:AddDropdown({
+    Category.World:AddLabel("FPS Booster")
+    local FPSLevel = Category.World:AddDropdown({
         Name = "Levels",
         Default = "Level 1",
         Options = {"Level 1", "Level 2", "Level 3"},
         Flag = "FPSLevel",
         Save = true
     })
-    World:AddButton({
+    Category.World:AddButton({
         Name = "Boost",
         Callback = function()
             Notify("This feature is currently irreversible, please rejoin to reset.")
@@ -186,14 +199,14 @@ local function(Feather, {Combat, Blatant, Render, World, Utility})
 
     --[[ Utility --]]
 
-    Utility:AddButton({
+    Category.Utility:AddButton({
         Name = "Reset Character",
         Callback = function()
             Player.Character.Humanoid.Health = 0
         end
     })
 
-    Utility:AddButton({
+    Category.Utility:AddButton({
         Name = "Serverhop",
         Callback = function()
             Notify("Sending you to a new game.")
