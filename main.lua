@@ -131,11 +131,11 @@ for i,v in pairs(listfiles(Directory.."/Scripts")) do
         anygame()
     elseif v == Directory.."/Scripts".."\\".."anygame.lua" then
         local anygame = loadstring(readfile(v))()
-        anygame.Script = {
-            Feather,
-            {Blatant, Combat, Render, World, Utility}
-        }
-        anygame()
+        --anygame.Script = {
+        --    Feather,
+        --    {Blatant, Combat, Render, World, Utility}
+        --}
+        --anygame()
     end
 end
 print("[Feather] Loaded script")
