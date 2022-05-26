@@ -9,8 +9,7 @@ local Script = {
     }
 }
 
-do
-
+(Feather, {Combat, Blatant, Render, World, Utility}) do
     --[[ Variables --]]
 
     local Entity = loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/Libraries/entityHandler.lua"))() -- Mabye download the file and put it in the /Feather/ folder.
@@ -62,7 +61,7 @@ do
     
     
     local function Notify(Contents)
-        Script.Feather:MakeNotification({
+        Feather:MakeNotification({
             Name = "Feather",
             Content = Contents,
             Image = "rbxassetid://9677399831",
@@ -76,7 +75,7 @@ do
 
     --[[ Blatant --]]
 
-    Script.Categories.Blatant:AddSlider({
+    Blatant:AddSlider({
         Name = "Speed",
         Min = 16,
         Max = 256,
@@ -91,7 +90,7 @@ do
         end
     })
 
-    Script.Categories.Blatant:AddSlider({
+    Blatant:AddSlider({
         Name = "Jump",
         Min = 50,
         Max = 500,
@@ -106,7 +105,7 @@ do
         end
     }) 
 
-    Script.Categories.Blatant:AddSlider({
+    Blatant:AddSlider({
         Name = "Flight",
         Min = 0,
         Max = 6,
@@ -121,7 +120,7 @@ do
         end
     })
 
-    Script.Categories.Blatant:AddTextbox({
+    Blatant:AddTextbox({
         Name = "Teleport to Player",
         Callback = function(Value)
         Value = Value:lower()
@@ -139,8 +138,8 @@ do
 
     --[[ Render --]]
 
-    Script.Categories.Render:AddLabel("ESP")
-    Script.Categories.Render:AddToggle({
+    Render:AddLabel("ESP")
+    Render:AddToggle({
         Name = "ESP",
         Default = false,
         Flag = "ESPToggle",
@@ -156,15 +155,15 @@ do
 
     --[[ World --]]
 
-    Script.Categories.World:AddLabel("FPS Booster")
-    local FPSLevel = Script.Categories.World:AddDropdown({
+    World:AddLabel("FPS Booster")
+    local FPSLevel = World:AddDropdown({
         Name = "Levels",
         Default = "Level 1",
         Options = {"Level 1", "Level 2", "Level 3"},
         Flag = "FPSLevel",
         Save = true
     })
-    Script.Categories.World:AddButton({
+    World:AddButton({
         Name = "Boost",
         Callback = function()
             Notify("This feature is currently irreversible, please rejoin to reset.")
@@ -197,14 +196,14 @@ do
 
     --[[ Utility --]]
 
-    Script.Categories.Utility:AddButton({
+    Utility:AddButton({
         Name = "Reset Character",
         Callback = function()
             Player.Character.Humanoid.Health = 0
         end
     })
 
-    Script.Categories.Utility:AddButton({
+    Utility:AddButton({
         Name = "Serverhop",
         Callback = function()
             Notify("Sending you to a new game.")
