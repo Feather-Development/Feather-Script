@@ -9,8 +9,6 @@ local Script = {
     }
 }
 
-local Category = Script.Categories
-
 do
 
     --[[ Variables --]]
@@ -78,7 +76,7 @@ do
 
     --[[ Blatant --]]
 
-    Category.Blatant:AddSlider({
+    Script.Categories.Blatant:AddSlider({
         Name = "Speed",
         Min = 16,
         Max = 256,
@@ -93,7 +91,7 @@ do
         end
     })
 
-    Category.Blatant:AddSlider({
+    Script.Categories.Blatant:AddSlider({
         Name = "Jump",
         Min = 50,
         Max = 500,
@@ -108,7 +106,7 @@ do
         end
     }) 
 
-    Category.Blatant:AddSlider({
+    Script.Categories.Blatant:AddSlider({
         Name = "Flight",
         Min = 0,
         Max = 6,
@@ -123,7 +121,7 @@ do
         end
     })
 
-    Category.Blatant:AddTextbox({
+    Script.Categories.Blatant:AddTextbox({
         Name = "Teleport to Player",
         Callback = function(Value)
         Value = Value:lower()
@@ -141,8 +139,8 @@ do
 
     --[[ Render --]]
 
-    Category.Render:AddLabel("ESP")
-    Category.Render:AddToggle({
+    Script.Categories.Render:AddLabel("ESP")
+    Script.Categories.Render:AddToggle({
         Name = "ESP",
         Default = false,
         Flag = "ESPToggle",
@@ -158,15 +156,15 @@ do
 
     --[[ World --]]
 
-    Category.World:AddLabel("FPS Booster")
-    local FPSLevel = Category.World:AddDropdown({
+    Script.Categories.World:AddLabel("FPS Booster")
+    local FPSLevel = Script.Categories.World:AddDropdown({
         Name = "Levels",
         Default = "Level 1",
         Options = {"Level 1", "Level 2", "Level 3"},
         Flag = "FPSLevel",
         Save = true
     })
-    Category.World:AddButton({
+    Script.Categories.World:AddButton({
         Name = "Boost",
         Callback = function()
             Notify("This feature is currently irreversible, please rejoin to reset.")
@@ -199,14 +197,14 @@ do
 
     --[[ Utility --]]
 
-    Category.Utility:AddButton({
+    Script.Categories.Utility:AddButton({
         Name = "Reset Character",
         Callback = function()
             Player.Character.Humanoid.Health = 0
         end
     })
 
-    Category.Utility:AddButton({
+    Script.Categories.Utility:AddButton({
         Name = "Serverhop",
         Callback = function()
             Notify("Sending you to a new game.")

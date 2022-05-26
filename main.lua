@@ -64,7 +64,6 @@ local Window = Feather:MakeWindow({
     ConfigFolder = "Feather/Profiles"
 })
 
-
 --[[ Private Access ]]--
 
 local hasPrivate_IDs = {
@@ -75,15 +74,15 @@ local hasPrivate_Names = {
     "comet2_exe",
 }
 
-local Blatant = Window:MakeTab({
-    Name = "Blatant",
-    Icon = "rbxassetid://9678803574",
-    PremiumOnly = false
-})
-
 local Combat = Window:MakeTab({
     Name = "Combat",
     Icon = "rbxassetid://9677479694",
+    PremiumOnly = false
+})
+
+local Blatant = Window:MakeTab({
+    Name = "Blatant",
+    Icon = "rbxassetid://9678803574",
     PremiumOnly = false
 })
 
