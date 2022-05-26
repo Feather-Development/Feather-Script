@@ -76,31 +76,31 @@ local hasPrivate_Names = {
 
 local Combat = Window:MakeTab({
     Name = "Combat",
-    Icon = "rbxassetid://9677479694",
+    Icon = "rbxassetid://9729721518",
     PremiumOnly = false
 })
 
 local Blatant = Window:MakeTab({
     Name = "Blatant",
-    Icon = "rbxassetid://9678803574",
+    Icon = "rbxassetid://9729725301",
     PremiumOnly = false
 })
 
 local Render = Window:MakeTab({
     Name = "Render",
-    Icon = "rbxassetid://9678804255",
+    Icon = "rbxassetid://9729726400",
     PremiumOnly = false
 })
 
 local World = Window:MakeTab({
     Name = "World",
-    Icon = "rbxassetid://9678804923",
+    Icon = "rbxassetid://9729728100",
     PremiumOnly = false
 })
 
 local Utility = Window:MakeTab({
     Name = "Utility",
-    Icon = "rbxassetid://9677477773",
+    Icon = "rbxassetid://9729729099",
     PremiumOnly = false
 })
 
