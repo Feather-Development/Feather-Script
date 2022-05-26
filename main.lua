@@ -124,14 +124,14 @@ end
 for i,v in pairs(listfiles(Directory.."/Scripts")) do
     print(v)
     if v == Directory.."/Scripts".."\\"..game.PlaceId..".lua" then
-        local anygame = loadstring((readfile(Directory.."/Scripts/"..v)), true)()
+        local anygame = loadstring(readfile(v))()
         anygame.Script = {
             Feather,
             {Blatant, Combat, Render, World, Utility}
         }
         anygame()
     elseif v == Directory.."/Scripts".."\\".."anygame.lua" then
-        local anygame = loadstring(game:HttpGet("https://raw.githubusercontent.com/Feather-Development/Feather-Script/main/Scripts/anygame.lua"))()
+        local anygame = loadstring(readfile(v))()
         anygame.Script = {
             Feather,
             {Blatant, Combat, Render, World, Utility}
