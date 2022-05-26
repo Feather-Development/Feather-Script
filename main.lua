@@ -105,8 +105,8 @@ local Utility = Window:MakeTab({
     PremiumOnly = false
 })
 
-if not isfolder(Directory.."Scripts/") then
-    makefolder(Directory.."Scripts/")
+if not isfolder(Directory.."/Scripts/") then
+    makefolder(Directory.."/Scripts/")
 end
 
 if not betterisfile(Directory.."Scripts/anygame.lua") then
@@ -114,7 +114,7 @@ if not betterisfile(Directory.."Scripts/anygame.lua") then
         Url = "https://raw.githubusercontent.com/Feather-Development/Feather-Script/main/Scripts/anygame.lua",
         Method = "GET"
     })
-    writefile(Directory.."Scripts/anygame.lua", req.Body)
+    writefile(Directory.."/Scripts/anygame.lua", req.Body)
 end
 
 if not isfolder(Directory.."/Addons/") then
@@ -123,18 +123,23 @@ end
 
 for i,v in pairs(listfiles(Directory.."/Scripts")) do
     print(v)
-    if v == Directory.."/Scripts\\"..game.PlaceId..".lua" then
-        --local anygame = loadstring((readfile(Directory.."Scripts/"..v)), true)()
-        --anygame.Script = {
-        --    Feather,
-        --    {Blatant, }
-        --}
-    elseif v == Directory.."/Scripts\\anygame.lua" then
-        --loadstring(readfile(Directory.."Scripts/"..v))()
-        
+    if v == Directory.."/Scripts".."\\"..game.PlaceId..".lua" then
+        local anygame = loadstring((readfile(Directory.."/Scripts/"..v)), true)()
+        anygame.Script = {
+            Feather,
+            {Blatant, Combat, Render, World, Utility}
+        }
+        anygame()
+    elseif v == Directory.."/Scripts".."\\".."anygame.lua" then
+        local anygame = loadstring(game:HttpGet("https://raw.githubusercontent.com/Feather-Development/Feather-Script/main/Scripts/anygame.lua"))()
+        anygame.Script = {
+            Feather,
+            {Blatant, Combat, Render, World, Utility}
+        }
+        anygame()
     end
 end
-print("[Feather] Loaded script for game: "..v)
+print("[Feather] Loaded script")
 
 Feather:MakeNotification({
     Name = "Feather",

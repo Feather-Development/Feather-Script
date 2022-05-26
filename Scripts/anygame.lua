@@ -15,11 +15,11 @@ do
 
     --[[ Variables --]]
 
+    local Entity = loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/Libraries/entityHandler.lua"))() -- Mabye download the file and put it in the /Feather/ folder.
     local Players = game:GetService("Players")
     local LocalPlayer = Players.LocalPlayer
-    local Character = Player.Character
+    local Character = Entity.character
     local Humanoid = Character.Humanoid
-    local Entity = loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/Libraries/entityHandler.lua"))() -- Mabye download the file and put it in the /Feather/ folder.
     local espLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Sirius/request/library/esp/esp.lua'), true))()
     local TPService = game:GetService("TeleportService")
 
