@@ -101,13 +101,4 @@ else
     print("[Feather] Loaded game script: anygame.lua")
 end
 
-Feather:MakeNotification({
-    Name = "Feather",
-    Content = "Press Right-Shift to open the Feather Window.",
-    Image = "rbxassetid://9677399831",
-    Time = 5
-})
-
 --[[ Init ]]--
-
-Feather:Init()

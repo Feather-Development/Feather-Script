@@ -41,10 +41,11 @@ local Utility = Window:MakeTab({
 
 local Entity = loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/Libraries/entityHandler.lua"))() -- Mabye download the file and put it in the /Feather/ folder.
 local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
+local Player = Players.LocalPlayer
+local LocalPlayer = Player
+local Humanoid = Entity.character.Humanoid
 local Character = Entity.character
-local Humanoid = Character.Humanoid
-local espLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Sirius/request/library/esp/esp.lua'), true))()
+local espLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Sirius/request/library/esp/esp.lua'),true))()
 local TPService = game:GetService("TeleportService")
 local Directory = "Feather"
 
@@ -227,7 +228,7 @@ World:AddButton({
 Utility:AddButton({
     Name = "Reset Character",
     Callback = function()
-        Player.Character.Humanoid.Health = 0
+        Character.Humanoid.Health = 0
     end
 })
 
@@ -238,3 +239,12 @@ Utility:AddButton({
         TPService:Teleport(game.PlaceId, Player)
     end
 })
+
+Feather:MakeNotification({
+    Name = "Feather",
+    Content = "Press Right-Shift to open the Feather Window.",
+    Image = "rbxassetid://9677399831",
+    Time = 5
+})
+
+Feather:Init()
